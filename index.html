@@ -1,0 +1,1364 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Site Coming Soon — YourSite</title>
+<meta name="description" content="We're building something brilliant. This page is under development — please come back later.">
+<meta name="theme-color" content="#6366f1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%236366f1'/%3E%3Cpath d='M30 60 L50 30 L70 60' stroke='%23fff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "YourSite",
+  "url": "https://yoursite.com",
+  "description": "We're building something brilliant. This page is under development — please come back later."
+}
+</script>
+
+<style>
+/* ==================== Base & CSS Variables ==================== */
+:root {
+  --bg: #fafbfd;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent-1: #6366f1;
+  --accent-2: #818cf8;
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(16, 24, 40, 0.06);
+  --text: #0f172a;
+  --radius: 14px;
+  --transition: 300ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  --focus: 3px solid rgba(99, 102, 241, 0.18);
+  --success: #10b981;
+  --error: #ef4444;
+}
+
+/* ==================== Reset & Layout ==================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(99, 102, 241, 0.06), transparent),
+              linear-gradient(180deg, var(--bg), var(--bg));
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+  padding: clamp(20px, 6vw, 48px);
+  transition: background var(--transition), color var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==================== Main Container ==================== */
+.container {
+  width: 100%;
+  max-width: 980px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.35));
+  backdrop-filter: blur(8px) saturate(120%);
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.08);
+  padding: clamp(20px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 28px;
+  align-items: center;
+  transition: all var(--transition);
+}
+
+/* ==================== Responsive Breakpoints ==================== */
+
+/* Tablet landscape and below (880px) */
+@media (max-width: 880px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: clamp(16px, 4vw, 32px);
+    gap: 20px;
+  }
+  .illustration {
+    order: -1;
+  }
+  .right {
+    padding: 16px;
+  }
+}
+
+/* Tablet portrait (768px) */
+@media (max-width: 768px) {
+  body {
+    padding: clamp(16px, 4vw, 24px);
+  }
+  
+  .container {
+    padding: 20px;
+    gap: 18px;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .brand {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .title {
+    font-size: clamp(24px, 6vw, 36px);
+  }
+  
+  .sub {
+    font-size: clamp(14px, 3.5vw, 16px);
+  }
+  
+  .right {
+    padding: 16px;
+  }
+  
+  .countdown {
+    gap: 6px;
+  }
+  
+  .countdown .unit {
+    min-width: 60px;
+    padding: 8px 10px;
+  }
+  
+  .countdown .val {
+    font-size: 1.25rem;
+  }
+}
+
+/* Mobile landscape (640px) */
+@media (max-width: 640px) {
+  body {
+    padding: 12px;
+  }
+  
+  .container {
+    padding: 16px;
+    border-radius: 12px;
+    gap: 16px;
+  }
+  
+  .header {
+    gap: 10px;
+  }
+  
+  .brand svg {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .title {
+    font-size: clamp(22px, 7vw, 28px);
+    margin: 4px 0;
+  }
+  
+  .sub {
+    font-size: 14px;
+    margin: 6px 0 12px 0;
+  }
+  
+  .illustration {
+    margin-top: 8px;
+  }
+  
+  .right {
+    padding: 14px;
+    gap: 10px;
+  }
+  
+  .countdown {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  
+  .countdown .unit {
+    min-width: auto;
+    padding: 10px 8px;
+  }
+  
+  .countdown .val {
+    font-size: 1.5rem;
+  }
+  
+  .countdown .kv {
+    font-size: 10px;
+  }
+  
+  .form-label {
+    font-size: 15px;
+  }
+  
+  .input {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .input input[type="email"],
+  .input button {
+    width: 100%;
+  }
+  
+  .input button {
+    padding: 12px 14px;
+  }
+  
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+/* Mobile portrait (480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  .container {
+    padding: 14px;
+    gap: 14px;
+  }
+  
+  .brand svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .brand strong {
+    font-size: 0.9rem;
+  }
+  
+  .title {
+    font-size: clamp(20px, 8vw, 26px);
+    line-height: 1.1;
+  }
+  
+  .sub {
+    font-size: 13px;
+  }
+  
+  .right {
+    padding: 12px;
+  }
+  
+  .badge {
+    font-size: 11px;
+    padding: 5px 9px;
+  }
+  
+  .countdown .unit {
+    padding: 8px 6px;
+    border-radius: 8px;
+  }
+  
+  .countdown .val {
+    font-size: 1.25rem;
+  }
+  
+  .form-label {
+    font-size: 14px;
+  }
+  
+  .helper {
+    font-size: 11px;
+  }
+  
+  .input input[type="email"] {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .input button {
+    padding: 11px 14px;
+    font-size: 14px;
+  }
+  
+  .socials a {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .progress {
+    gap: 5px;
+  }
+  
+  .dot {
+    width: 7px;
+    height: 7px;
+  }
+  
+  .footer {
+    font-size: 11px;
+  }
+}
+
+/* Small mobile (360px) */
+@media (max-width: 360px) {
+  body {
+    padding: 8px;
+  }
+  
+  .container {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .brand {
+    gap: 8px;
+  }
+  
+  .brand svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .brand strong {
+    font-size: 0.85rem;
+  }
+  
+  .title {
+    font-size: 18px;
+  }
+  
+  .sub {
+    font-size: 12px;
+  }
+  
+  .right {
+    padding: 10px;
+    gap: 8px;
+  }
+  
+  .countdown {
+    gap: 5px;
+  }
+  
+  .countdown .unit {
+    padding: 6px 4px;
+    min-width: auto;
+  }
+  
+  .countdown .val {
+    font-size: 1.1rem;
+  }
+  
+  .countdown .kv {
+    font-size: 9px;
+    margin-top: 2px;
+  }
+  
+  .form-label {
+    font-size: 13px;
+  }
+  
+  .helper {
+    font-size: 10px;
+  }
+  
+  .input input[type="email"] {
+    padding: 9px;
+    font-size: 13px;
+  }
+  
+  .input button {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .socials a {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .socials svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .progress .kv {
+    font-size: 11px;
+  }
+}
+
+/* Extra wide screens (1400px+) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1200px;
+    padding: clamp(32px, 5vw, 60px);
+    gap: 40px;
+  }
+  
+  .title {
+    font-size: clamp(36px, 4vw, 52px);
+  }
+  
+  .sub {
+    font-size: clamp(16px, 2vw, 18px);
+  }
+  
+  .right {
+    padding: 24px;
+  }
+  
+  .countdown .unit {
+    min-width: 80px;
+    padding: 14px 16px;
+  }
+  
+  .countdown .val {
+    font-size: 2rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+  body {
+    padding: 12px;
+  }
+  
+  .container {
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .illustration {
+    max-width: 400px;
+  }
+  
+  .title {
+    font-size: clamp(20px, 4vw, 32px);
+    margin: 4px 0;
+  }
+  
+  .sub {
+    font-size: 14px;
+    margin: 4px 0 8px 0;
+  }
+  
+  .right {
+    padding: 12px;
+    gap: 8px;
+  }
+  
+  .countdown {
+    gap: 6px;
+  }
+  
+  .countdown .unit {
+    padding: 6px 8px;
+  }
+  
+  .countdown .val {
+    font-size: 1.2rem;
+  }
+  
+  .countdown .kv {
+    font-size: 10px;
+  }
+}
+
+/* ==================== Header & Branding ==================== */
+.header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.brand strong {
+  display: block;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+}
+
+.title {
+  font-size: clamp(28px, 4.5vw, 44px);
+  margin: 6px 0;
+  font-weight: 700;
+  line-height: 1.02;
+  background: linear-gradient(135deg, var(--text) 0%, var(--accent-1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sub {
+  color: var(--muted);
+  margin: 8px 0 16px 0;
+  font-size: clamp(14px, 2.2vw, 16px);
+}
+
+/* ==================== Illustration ==================== */
+.illustration {
+  margin-top: 14px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.illustration svg {
+  width: 100%;
+  height: auto;
+}
+
+/* ==================== Right Column (Form Area) ==================== */
+.right {
+  background: linear-gradient(180deg, var(--glass), rgba(255, 255, 255, 0.02));
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ==================== Badge ==================== */
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--accent-1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.06), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ==================== Countdown Timer ==================== */
+.countdown {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.countdown .unit {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.45));
+  padding: 10px 12px;
+  border-radius: 10px;
+  min-width: 66px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid var(--glass-border);
+}
+
+.countdown .val {
+  display: block;
+  color: var(--accent-1);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.countdown .kv {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* ==================== Form Styles ==================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-label {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 6px 0 0 0;
+}
+
+.input {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.input input[type="email"] {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: transparent;
+  color: var(--text);
+  outline: none;
+  font-size: 14px;
+  transition: all var(--transition);
+}
+
+.input input[type="email"]:focus {
+  box-shadow: var(--focus);
+  border-color: var(--accent-1);
+}
+
+.input button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 0;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.input button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.input button:focus {
+  box-shadow: var(--focus);
+}
+
+.input button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==================== Form Messages ==================== */
+.helper {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.success {
+  color: #0f5132;
+  background: #d1fae5;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  border: 1px solid var(--success);
+}
+
+.error {
+  color: #7f1d1d;
+  background: #fee2e2;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  border: 1px solid var(--error);
+}
+
+/* ==================== Social Links ==================== */
+.socials {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  text-decoration: none;
+  color: var(--text);
+  transition: all var(--transition);
+}
+
+.socials a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  color: white;
+}
+
+.socials a:focus {
+  box-shadow: var(--focus);
+}
+
+/* ==================== Progress Indicator ==================== */
+.progress {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent-1), var(--accent-2));
+  opacity: 0.18;
+  transform: translateY(0);
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+  0% {
+    opacity: 0.18;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 0.18;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== Footer ==================== */
+.footer {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer a {
+  color: var(--accent-1);
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ==================== Utility Classes ==================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.kv {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ==================== Focus Visible ==================== */
+:focus-visible {
+  outline: var(--focus);
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus,
+input:focus {
+  outline: none;
+}
+
+/* ==================== No-JS Fallback ==================== */
+.no-js-fallback {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.no-js-fallback h1 {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+}
+
+.no-js-fallback p {
+  margin: 0 0 12px 0;
+  color: #555;
+}
+</style>
+</head>
+<body>
+  <!-- No-JS Fallback -->
+  <noscript>
+    <div class="no-js-fallback">
+      <h1>We're building something brilliant.</h1>
+      <p>This page is under development — please come back later. JavaScript appears to be disabled. Please revisit later or contact us at <a href="mailto:hello@yoursite.com">hello@yoursite.com</a>.</p>
+    </div>
+  </noscript>
+
+  <main class="container" role="main" aria-labelledby="pageTitle">
+    <!-- Left Column: Branding + Illustration -->
+    <section aria-label="Coming soon information">
+      <div class="header">
+        <div class="brand" aria-hidden="true">
+          <!-- Brand Logo -->
+          <svg width="44" height="44" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="brandGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#6366f1"/>
+                <stop offset="1" stop-color="#818cf8"/>
+              </linearGradient>
+            </defs>
+            <rect x="6" y="6" width="88" height="88" rx="18" fill="url(#brandGrad)"/>
+            <path d="M28 62 L50 34 L72 62" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <div style="flex:1">
+          <strong id="siteName" style="display:block">YourSite</strong>
+          <h1 id="pageTitle" class="title">We're building something brilliant.</h1>
+          <p class="sub">This page is under development — please come back later.</p>
+        </div>
+      </div>
+
+      <!-- Animated Illustration -->
+      <div class="illustration">
+        <svg viewBox="0 0 640 360" width="100%" height="auto" role="img" aria-labelledby="illTitle illDesc" preserveAspectRatio="xMidYMid meet">
+          <title id="illTitle">Work in progress illustration</title>
+          <desc id="illDesc">An animated crane lifting blocks — symbolic of building progress.</desc>
+          <defs>
+            <linearGradient id="gradA" x1="0" x2="1">
+              <stop offset="0" stop-color="#6366f1"/>
+              <stop offset="1" stop-color="#818cf8"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Ground -->
+          <rect x="0" y="320" width="640" height="40" fill="rgba(15,23,42,0.06)"/>
+
+          <!-- Building Blocks -->
+          <rect x="120" y="240" width="80" height="80" fill="url(#gradA)" opacity="0.8" rx="8">
+            <animate attributeName="y" values="240;235;240" dur="2s" repeatCount="indefinite"/>
+          </rect>
+          <rect x="230" y="200" width="80" height="120" fill="url(#gradA)" opacity="0.9" rx="8">
+            <animate attributeName="y" values="200;195;200" dur="2.5s" repeatCount="indefinite"/>
+          </rect>
+          <rect x="340" y="160" width="80" height="160" fill="url(#gradA)" rx="8">
+            <animate attributeName="y" values="160;155;160" dur="3s" repeatCount="indefinite"/>
+          </rect>
+
+          <!-- Crane -->
+          <g transform="translate(450,0)">
+            <rect x="30" y="80" width="36" height="240" rx="6" fill="#0f172a" opacity="0.08"/>
+            <g transform="translate(0,6)">
+              <!-- Crane Arm -->
+              <rect x="66" y="64" width="140" height="12" rx="6" fill="url(#gradA)"/>
+              <!-- Cable -->
+              <line x1="190" y1="76" x2="190" y2="180" stroke="#0f172a" stroke-width="3" opacity="0.6"/>
+              <!-- Lifting Block -->
+              <rect id="liftBlock" x="160" y="176" width="60" height="50" rx="6" fill="#111827" opacity="0.95">
+                <animate attributeName="y" values="176;140;176" dur="3.6s" repeatCount="indefinite"/>
+              </rect>
+              <!-- Rotating Gear -->
+              <g transform="translate(40,220)">
+                <circle cx="0" cy="0" r="18" fill="none" stroke="#0f172a" stroke-opacity="0.08" stroke-width="8"/>
+                <g id="gear">
+                  <circle cx="0" cy="0" r="10" fill="#0f172a" opacity="0.08"/>
+                  <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="6s" repeatCount="indefinite"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Right Column: Form & Controls -->
+    <aside class="right" aria-labelledby="notifyTitle">
+      <!-- Badge -->
+      <div style="display:flex;justify-content:flex-start;align-items:center;">
+        <div class="badge" id="statusBadge" aria-hidden="true">Work in progress</div>
+      </div>
+
+      <!-- Countdown -->
+      <div id="countdownWrap" aria-live="polite" aria-atomic="true">
+        <div class="countdown" id="countdown"></div>
+      </div>
+
+      <!-- Form Section -->
+      <div style="margin-top:6px">
+        <h2 id="notifyTitle" class="form-label">Notify me when it launches</h2>
+        <p class="helper">We'll send one short email when the site goes live. No spam — unsubscribe anytime.</p>
+      </div>
+
+      <!-- Email Form -->
+      <form id="notifyForm" novalidate aria-describedby="formHelp">
+        <div class="input">
+          <label for="email" class="sr-only">Email address</label>
+          <input 
+            id="email" 
+            name="email" 
+            type="email" 
+            inputmode="email" 
+            placeholder="your.email@example.com" 
+            aria-required="true"
+            aria-label="Email address"
+          >
+          <button type="submit" aria-label="Notify me">Notify me</button>
+        </div>
+        <div id="formHelp" class="helper">Configure emailEndpoint in the script to connect with Mailchimp, Formspark, or Netlify Forms.</div>
+        <div id="formFeedback" role="status" aria-live="polite"></div>
+      </form>
+
+      <!-- Social Links -->
+      <div class="socials hidden" id="socials"></div>
+
+      <!-- Progress Indicator -->
+      <div class="progress" aria-hidden="true">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="kv" style="margin-left:8px">We're making progress</span>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="kv">© <span id="year"></span> <span id="siteName2">YourSite</span></div>
+        <div class="kv"><a href="mailto:hello@yoursite.com" id="contactLink">Contact</a></div>
+      </div>
+    </aside>
+  </main>
+
+<script>
+/* ==========================================
+   CONFIGURATION OBJECT
+   ========================================== 
+   Change these values to customize your page:
+   - siteName: Your site/brand name
+   - launchDate: ISO 8601 format (e.g., "2025-12-31T23:59:59") or empty to hide countdown
+   - emailEndpoint: URL for email capture (Formspree, Formspark, Netlify Forms) or empty for client-side only
+   - contactEmail: Contact email address
+   - socials: Social media URLs or empty strings to hide icons
+   - colors: Customize the color scheme (CSS color values)
+*/
+const CONFIG = {
+  siteName: "imranpushon.com",
+  launchDate: "2025-12-31T23:59:59",              // Set your launch date here
+  emailEndpoint: "",                               // Example: "https://formspree.io/f/your-form-id"
+  contactEmail: "imranpushon@gmail.com",              // Your contact email
+  socials: {
+    twitter: "",                                   // Example: "https://twitter.com/yourhandle"
+    linkedin: "",                                  // Example: "https://linkedin.com/company/yourcompany"
+    github: ""                                     // Example: "https://github.com/yourusername"
+  },
+  colors: {
+    accent1: "#6366f1",                            // Primary accent color
+    accent2: "#818cf8"                             // Secondary accent color
+  }
+};
+
+/* ========================================== Apply Colors ========================================== */
+(function applyColors() {
+  if (CONFIG.colors) {
+    const root = document.documentElement;
+    if (CONFIG.colors.accent1) root.style.setProperty('--accent-1', CONFIG.colors.accent1);
+    if (CONFIG.colors.accent2) root.style.setProperty('--accent-2', CONFIG.colors.accent2);
+  }
+})();
+
+/* ========================================== Apply Site Name, Year & Contact ========================================== */
+document.getElementById('siteName').textContent = CONFIG.siteName;
+document.getElementById('siteName2').textContent = CONFIG.siteName;
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('contactLink').href = 'mailto:' + CONFIG.contactEmail;
+
+/* ========================================== Countdown Timer ========================================== */
+(function initCountdown() {
+  const countdownEl = document.getElementById('countdown');
+  const statusBadge = document.getElementById('statusBadge');
+  
+  function isValidDate(d) {
+    return d instanceof Date && !isNaN(d);
+  }
+  
+  function renderCountdown() {
+    countdownEl.innerHTML = '';
+    
+    if (!CONFIG.launchDate) {
+      countdownEl.style.display = 'none';
+      statusBadge.textContent = 'Coming soon';
+      return;
+    }
+    
+    const target = new Date(CONFIG.launchDate);
+    
+    if (!isValidDate(target)) {
+      countdownEl.style.display = 'none';
+      statusBadge.textContent = 'Coming soon';
+      return;
+    }
+    
+    statusBadge.textContent = 'Launch scheduled';
+    countdownEl.style.display = 'flex';
+    
+    // Create countdown units
+    const units = ['days', 'hours', 'minutes', 'seconds'];
+    const nodeMap = {};
+    
+    units.forEach(u => {
+      const div = document.createElement('div');
+      div.className = 'unit';
+      div.setAttribute('data-unit', u);
+      div.innerHTML = `
+        <div class="val" aria-hidden="true">—</div>
+        <div class="kv">${u}</div>
+      `;
+      countdownEl.appendChild(div);
+      nodeMap[u] = div.querySelector('.val');
+    });
+    
+    function updateCountdown() {
+      const now = new Date();
+      let diff = Math.max(0, Math.floor((target - now) / 1000));
+      
+      if (diff <= 0) {
+        nodeMap.days.textContent = '0';
+        nodeMap.hours.textContent = '0';
+        nodeMap.minutes.textContent = '0';
+        nodeMap.seconds.textContent = '0';
+        statusBadge.textContent = 'Launched';
+        clearInterval(interval);
+        return;
+      }
+      
+      const days = Math.floor(diff / 86400);
+      diff -= days * 86400;
+      const hours = Math.floor(diff / 3600);
+      diff -= hours * 3600;
+      const minutes = Math.floor(diff / 60);
+      diff -= minutes * 60;
+      const seconds = diff;
+      
+      nodeMap.days.textContent = String(days).padStart(2, '0');
+      nodeMap.hours.textContent = String(hours).padStart(2, '0');
+      nodeMap.minutes.textContent = String(minutes).padStart(2, '0');
+      nodeMap.seconds.textContent = String(seconds).padStart(2, '0');
+      
+      const human = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds until launch.`;
+      countdownEl.setAttribute('aria-label', human);
+    }
+    
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+  }
+  
+  renderCountdown();
+})();
+
+/* ========================================== Email Form Validation ========================================== */
+(function initForm() {
+  const form = document.getElementById('notifyForm');
+  const email = document.getElementById('email');
+  const feedback = document.getElementById('formFeedback');
+  
+  function validateEmail(e) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+  }
+  
+  form.addEventListener('submit', async function(ev) {
+    ev.preventDefault();
+    feedback.textContent = '';
+    feedback.className = '';
+    
+    const val = email.value.trim();
+    
+    // Validation
+    if (!val) {
+      feedback.textContent = 'Please enter your email address.';
+      feedback.className = 'error';
+      email.focus();
+      return;
+    }
+    
+    if (!validateEmail(val)) {
+      feedback.textContent = 'Please enter a valid email address.';
+      feedback.className = 'error';
+      email.focus();
+      return;
+    }
+    
+    // Disable during submission
+    email.disabled = true;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    
+    try {
+      if (CONFIG.emailEndpoint) {
+        // POST to configured endpoint
+        const response = await fetch(CONFIG.emailEndpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email: val })
+        });
+        
+        if (response.ok) {
+          feedback.textContent = 'Subscription successful — thank you!';
+          feedback.className = 'success';
+          form.reset();
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      } else {
+        // Client-side only (no backend)
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        feedback.textContent = 'Thanks — we will notify you when the site launches.';
+        feedback.className = 'success';
+        
+        // Optional: Store locally for developer reference
+        try {
+          const stored = JSON.parse(localStorage.getItem('launch_signups') || '[]');
+          stored.push({ email: val, timestamp: new Date().toISOString() });
+          localStorage.setItem('launch_signups', JSON.stringify(stored.slice(-100)));
+        } catch (e) {
+          console.warn('Could not store email locally', e);
+        }
+        
+        form.reset();
+      }
+    } catch (error) {
+      feedback.textContent = 'Saved locally — failed to reach email service. See console for details.';
+      feedback.className = 'error';
+      console.error('Email submission error:', error);
+    } finally {
+      email.disabled = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+})();
+
+/* ========================================== Social Links ========================================== */
+(function initSocials() {
+  const socialsEl = document.getElementById('socials');
+  const s = CONFIG.socials || {};
+  
+  // Social icon SVGs
+  const icons = {
+    twitter: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>`,
+    linkedin: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6 1.1 6 0 4.88 0 3.5 0 2.12 1.1 1 2.48 1 3.86 1 4.98 2.12 4.98 3.5zM.24 8.5h4.48V24H.24zM8.5 8.5h4.3v2.1h.1c.6-1.1 2-2.3 4.2-2.3 4.5 0 5.3 3 5.3 6.8V24h-4.5v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.7 1.8-2.7 3.8V24H8.5z" fill="currentColor"/></svg>`,
+    github: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.7 3.03 8.7 7.24 10.12.53.1.72-.23.72-.5 0-.25-.01-.91-.01-1.78-2.95.64-3.57-1.42-3.57-1.42-.48-1.24-1.17-1.57-1.17-1.57-.95-.65.07-.64.07-.64 1.06.07 1.62 1.09 1.62 1.09.93 1.6 2.44 1.14 3.03.87.09-.68.37-1.14.67-1.4-2.36-.27-4.84-1.18-4.84-5.28 0-1.17.42-2.12 1.11-2.87-.11-.28-.48-1.42.11-2.96 0 0 .9-.29 2.95 1.11a10.2 10.2 0 0 1 2.69-.36c.91.01 1.84.12 2.69.36 2.05-1.4 2.95-1.11 2.95-1.11.6 1.54.23 2.68.11 2.96.69.75 1.11 1.7 1.11 2.87 0 4.11-2.49 5-4.86 5.27.38.33.72.98.72 1.98 0 1.43-.01 2.58-.01 2.93 0 .27.19.61.73.5 4.2-1.42 7.23-5.42 7.23-10.12C23.1 5.33 18.27.5 12 .5z" fill="currentColor"/></svg>`
+  };
+  
+  const links = [];
+  if (s.twitter) links.push({ href: s.twitter, icon: icons.twitter, name: 'Twitter' });
+  if (s.linkedin) links.push({ href: s.linkedin, icon: icons.linkedin, name: 'LinkedIn' });
+  if (s.github) links.push({ href: s.github, icon: icons.github, name: 'GitHub' });
+  
+  if (!links.length) {
+    socialsEl.style.display = 'none';
+    return;
+  }
+  
+  socialsEl.classList.remove('hidden');
+  
+  links.forEach(l => {
+    const a = document.createElement('a');
+    a.href = l.href;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.innerHTML = l.icon;
+    a.title = l.name;
+    a.setAttribute('aria-label', l.name);
+    socialsEl.appendChild(a);
+  });
+})();
+</script>
+
+<!--
+==========================================
+QUICK START GUIDE
+==========================================
+
+## Configuration
+Update the CONFIG object above with your details:
+
+1. **siteName**: Your brand/site name
+2. **launchDate**: Set to "2025-12-31T23:59:59" format (or leave empty to hide countdown)
+3. **emailEndpoint**: Add your email service URL (Formspree, Formspark, etc.)
+4. **contactEmail**: Your contact email address
+5. **colors**: Customize accent colors (CSS hex values)
+6. **socials**: Add your social media URLs
+
+## Customizing Colors
+Change the colors in CONFIG.colors:
+- accent1: Primary color (default: #6366f1- Indigo)
+- accent2: Secondary color (default: #818cf8 - Light Indigo)
+
+Popular color combinations:
+- Blue/Cyan: accent1: "#0ea5a5", accent2: "#2563eb"
+- Purple/Pink: accent1: "#9333ea", accent2: "#ec4899"
+- Green/Teal: accent1: "#059669", accent2: "#06b6d4"
+- Orange/Red: accent1: "#ea580c", accent2: "#dc2626"
+
+## Email Service Integration
+
+### Formspree (Recommended)
+1. Sign up at https://formspree.io
+2. Create a new form
+3. Copy your endpoint: https://formspree.io/f/YOUR_FORM_ID
+4. Set CONFIG.emailEndpoint = "https://formspree.io/f/YOUR_FORM_ID"
+
+### Formspark
+1. Sign up at https://formspark.io
+2. Create a form and get your endpoint
+3. Set CONFIG.emailEndpoint to your Formspark URL
+
+### Netlify Forms
+1. Deploy to Netlify
+2. Add name="netlify" to the <form> tag
+3. Submissions appear in Netlify dashboard
+
+### Mailchimp
+1. Create an embedded form in Mailchimp
+2. Use the action URL as your endpoint
+3. May require CORS configuration
+
+## Countdown Timer
+Set your launch date in ISO 8601 format:
+- Full date & time: "2025-12-31T23:59:59"
+- With timezone: "2025-12-31T23:59:59+00:00"
+- Leave empty "" to hide countdown
+
+## Copyright & Contact
+The footer automatically shows:
+- Current year (updates automatically)
+- Your site name
+- Contact email link
+
+Both update from CONFIG settings.
+
+## Social Media Links
+Add your social URLs in CONFIG.socials:
+- twitter: "https://twitter.com/yourhandle"
+- linkedin: "https://linkedin.com/company/yourcompany"
+- github: "https://github.com/yourusername"
+
+Leave empty "" to hide icons.
+
+## Deployment
+This is a single HTML file - upload to:
+- Netlify (drag & drop)
+- Vercel
+- GitHub Pages
+- Any static host
+
+## File Size
+- Total: ~25-30KB (unminified)
+- No external dependencies
+- Loads in <1 second
+
+## Browser Support
+- Chrome/Edge: Latest 2 versions
+- Firefox: Latest 2 versions
+- Safari: Latest 2 versions
+- Mobile: iOS 12+, Chrome Android
+
+## Accessibility Features
+✓ Semantic HTML structure
+✓ ARIA labels and roles
+✓ Keyboard navigation
+✓ Screen reader support
+✓ Focus indicators
+✓ Form validation messages
+
+## What's NOT Included
+✗ Dark/Light mode toggle (removed as requested)
+✗ Reduced motion toggle (removed as requested)
+✗ Analytics or tracking
+✗ Cookie notices
+✗ Backend server
+
+## Production Checklist
+Before launching:
+□ Update CONFIG with real values
+□ Set launch date for countdown
+□ Configure email endpoint
+□ Update contact email
+□ Add social media links
+□ Customize colors if desired
+□ Test form submission
+□ Test on mobile devices
+□ Test with JavaScript disabled
+□ Validate HTML
+□ Check accessibility (Lighthouse)
+□ Replace favicon if needed
+
+## Need Help?
+- HTML Validator: https://validator.w3.org
+- Accessibility Check: Chrome Lighthouse
+- Email Services: Formspree.io, Formspark.io
+- Hosting: Netlify.com, Vercel.com
+
+==========================================
+END OF DOCUMENTATION
+==========================================
+-->
+
+</body>
+</html>
